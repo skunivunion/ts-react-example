@@ -1,14 +1,18 @@
 import React from "react";
 
-// props 선언 : type 또는 interface를 쓴다.
-type GreetingsProps = {
+// 부모 컴포넌트로부터 받는 props 선언 : type( '=' 사용)을 사용할 수 있다.
+interface GreetingsProps {
   name: string;
-  mark: string;
-  optional?: string; // ? : 옵션임을 나타낸다.
+  mark?: string; // ? : 생략 가능
+  optional?: string; // ? : 부모 컴포넌트에서 보내지 않아도 된다.
   onClick: (name: string) => void; // 아무것도 리턴하지 않는다.
-};
+}
 
-function Greetings({ name, mark, optional, onClick }: GreetingsProps) {
+// mark = '!' : default value
+// function 사용
+//function Greetings({ name, mark = "!", optional, onClick }: GreetingsProps) {
+// 화살표 함수 사용
+const Greetings = ({ name, mark = "!", optional, onClick }: GreetingsProps) => {
   // 버튼 클릭 처리
   const handleClick = () => onClick(name);
 
@@ -22,11 +26,6 @@ function Greetings({ name, mark, optional, onClick }: GreetingsProps) {
       </div>
     </div>
   );
-}
-
-// mark 값이 없을 경우 사용
-Greetings.defaultProps = {
-  mark: "!",
 };
 
 export default Greetings;
