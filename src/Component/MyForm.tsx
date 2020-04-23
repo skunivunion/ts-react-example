@@ -26,7 +26,10 @@ function MyForm({ onSubmit }: MyFormProps) {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     // e 값: onSubmit= 의 onSubmit 위로 마우스 커서를 움직이면 알 수 있다.
     e.preventDefault();
+
+    // 부모 컴포넌트로부터 받은 onSubmit 함수 실행 (현재 로그(form 값) 남김)
     onSubmit(form);
+
     setForm({
       name: "",
       description: "",
@@ -34,11 +37,13 @@ function MyForm({ onSubmit }: MyFormProps) {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <input name="name" value={name} onChange={onChange} />
-      <input name="description" value={description} onChange={onChange} />
-      <button type="submit">등록</button>
-    </form>
+    <>
+      <form onSubmit={handleSubmit}>
+        <input name="name" value={name} onChange={onChange} />
+        <input name="description" value={description} onChange={onChange} />
+        <button type="submit">등록</button>
+      </form>
+    </>
   );
 }
 
