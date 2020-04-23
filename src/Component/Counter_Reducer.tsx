@@ -3,7 +3,8 @@ import React, { useReducer } from "react";
 // 액션을 |(= or) 으로 나열
 type Action = { type: "INCREASE" } | { type: "DECREASE" };
 
-// 이전 상태(state)와 Action.type을 이용하여 새로운 상태를 만든다.
+// useReducer를 사용 할 때에는 액션에 대한 타입스크립트 타입들을 모두 준비해서
+// '|' 문자를 사용하여 결합시켜야 한다.
 // 리듀서를 만들 땐 파라미터로 받아오는 상태의 타입과
 // 함수가 리턴하는 타입을 동일하게 하는 것이 매우 중요
 function reducer(state: number, action: Action): number {
