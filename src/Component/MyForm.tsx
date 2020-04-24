@@ -6,7 +6,7 @@ interface MyFormProps {
 }
 
 function MyForm({ onSubmit }: MyFormProps) {
-  // useRef를 사용 할 땐 Generics 로 타입을 정합니다.
+  // useRef를 사용 할 땐 Generics 로 타입을 정한다.
   // useRef는 리액트 컴포넌트에서 외부 라이브러리의 인스턴스 또는 DOM 을 특정 값 안에 담을 때 사용 (초기값 null로 설정)
   // 이를 통해 컴포넌트 내부에서 관리하고 있는 값을 관리할 때 유용. 단, 이 값은 렌더링과 관계가 없어야 한다.
   const inputRef = useRef<HTMLInputElement>(null);
